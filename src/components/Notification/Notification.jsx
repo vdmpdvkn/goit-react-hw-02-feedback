@@ -1,3 +1,3 @@
-export const Notification = ({ title }) => {
-  return <h3>{title}</h3>;
+export const Notification = ({ message }) => {
+  return <h3>{message}</h3>;
 };

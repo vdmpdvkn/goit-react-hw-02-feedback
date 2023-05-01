@@ -1,7 +1,7 @@
 import StyledSection from './Section.styled';
-const Section = ({ message, children }) => (
+const Section = ({ title, children }) => (
   <StyledSection>
-    <h2>{message}</h2>
+    <h2>{title}</h2>
     {children}
   </StyledSection>
 );
