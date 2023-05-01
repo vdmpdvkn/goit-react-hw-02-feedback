@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import capitalize from 'components/capitalize';
+import capitalize from 'js/capitalize';
 import propTypes from 'prop-types';
+import List from './Statistics.styled';
 class Statistics extends Component {
   static defaultProps = {
     options: {},
@@ -11,7 +12,7 @@ class Statistics extends Component {
   render() {
     const { options } = this.props;
     return (
-      <ul>
+      <List>
         {Object.entries(options).map(option => (
           <li key={option}>
             {capitalize(option[0])}: {option[1]}
@@ -22,7 +23,7 @@ class Statistics extends Component {
           Positive feedback:{' '}
           {this.props.countPositiveFeedbackPercentage.toFixed(0)}%
         </li>
-      </ul>
+      </List>
     );
   }
 }
