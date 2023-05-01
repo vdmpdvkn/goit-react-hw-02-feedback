@@ -33,22 +33,29 @@ class App extends Component {
     });
   };
   render() {
+    const {
+      state,
+      onLeaveFeedback,
+      countPositiveFeedbackPercentage,
+      countTotalFeedback,
+      isZero,
+    } = this;
     return (
       <>
         <Section title={'Please leave a feedback'}>
           <FeedbackOptions
-            options={Object.keys(this.state)}
-            onLeaveFeedback={this.onLeaveFeedback}
+            options={Object.keys(state)}
+            onLeaveFeedback={onLeaveFeedback}
           />
         </Section>
         <Section title={'Statistics'}>
-          {this.isZero() ? (
+          {isZero() ? (
             <Notification message={'There is no feedback'} />
           ) : (
             <Statistics
-              options={this.state}
-              countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
-              countTotal={this.countTotalFeedback()}
+              options={state}
+              countPositiveFeedbackPercentage={countPositiveFeedbackPercentage()}
+              countTotal={countTotalFeedback()}
             />
           )}
         </Section>
