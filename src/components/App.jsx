@@ -43,7 +43,7 @@ class App extends Component {
         </Section>
         <Section title={'Statistics'}>
           {this.isZero() ? (
-            <Notification title={'There is no feedback'} />
+            <Notification message={'There is no feedback'} />
           ) : (
             <Statistics
               options={this.state}
