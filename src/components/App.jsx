@@ -15,13 +15,7 @@ class App extends Component {
       return (acc += key);
     }, 0);
   };
-  isZero = () => {
-    const { good, bad, neutral } = this.state;
-    if (good === 0 && bad === 0 && neutral === 0) {
-      return true;
-    }
-    return false;
-  };
+
   countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
     return (good * 100) / this.countTotalFeedback();
@@ -38,7 +32,6 @@ class App extends Component {
       onLeaveFeedback,
       countPositiveFeedbackPercentage,
       countTotalFeedback,
-      isZero,
     } = this;
     return (
       <>
@@ -49,7 +42,7 @@ class App extends Component {
           />
         </Section>
         <Section title={'Statistics'}>
-          {isZero() ? (
+          {countTotalFeedback() === 0 ? (
             <Notification message={'There is no feedback'} />
           ) : (
             <Statistics
